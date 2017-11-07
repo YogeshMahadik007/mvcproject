@@ -1,0 +1,69 @@
+﻿@model IEnumerable<exp1.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1 style="text-align:center">BIKES</h1>
+
+<table class="table table-striped" >
+    <tr>
+        <th style="text-align:center">
+            NAME
+        </th>
+        <th style="text-align:center">
+            IMAGE
+        </th>
+        <th style="text-align:center">
+            PRICE
+        </th>
+        <th style="text-align:center">
+            DESCRIPTION
+        </th>
+        <th style="text-align:center">Action to Perform
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+      
+       
+        <td style="text-align:center">
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td >
+           &nbsp &nbsp &nbsp &nbsp &nbsp <img src="~/Content/Img/@item.img" height="100" width="200" />
+        </td>
+        <td style="text-align:center">
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @if (Session["urole"] != null)
+            { 
+             if (Session["urole"].Equals("admin"))
+             {
+                 
+              @Html.ActionLink("Edit  ", "Edit", new { id=item.id }) 
+              @Html.ActionLink("  Delete", "Delete", new { id=item.id })
+              }
+            else
+            {
+                  
+                @Html.ActionLink("AddToCart  ","Cart", new {id = item.id})
+            }
+            }
+            else
+            {
+                @Html.ActionLink("Register  ", "Register", "Hom")
+                @Html.ActionLink("  Log In", "Login", "Hom")   
+            }
+            @Html.ActionLink("Details ", "Details", new { id=item.id }) 
+             
+        </td>
+    </tr>
+}
+
+</table>

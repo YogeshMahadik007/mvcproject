@@ -1,0 +1,59 @@
+﻿@model IEnumerable<exp1.Models.Cart>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            PRODUCT NAME
+        </th>
+        <th>
+            PRICE
+        </th>
+        <th>
+            IMAGE
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+       <td>
+           &nbsp &nbsp &nbsp &nbsp &nbsp <img src="~/Content/Img/@item.img" height="100" width="200" />
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}<tr>   <th>
+            Add more Product
+        </th>
+        <th>
+            @Html.ActionLink("ADD","Index","Product")
+        </th>
+    </tr>
+    <tr>
+        <th>
+            TOTAL
+        </th>
+        <th>
+            @ViewBag.Sum
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("Checkout","Checkout", new{@class="btn btn-primary btn-large"})
+        </td>
+    </tr>
+
+</table>

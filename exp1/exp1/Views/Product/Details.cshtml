@@ -1,0 +1,39 @@
+﻿
+@model exp1.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<p  style="text-align:right">
+      @Html.ActionLink("Back to List", "Index")
+</p>
+<table class="table table-striped">
+    <tr>
+        <td colspan="2">
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <img src="~/Content/Img/@Model.img" height="350" width="800"  />
+        </td>
+        </tr>
+        <tr>
+            <td>NAME</td>
+        
+        <td>
+            @Html.DisplayFor(model => model.name)
+        </td>
+    </tr>
+
+        <tr>
+            <td>DESCRIPTION</td>
+        
+        <td>
+            @Html.DisplayFor(model => model.description)
+        </td>
+    </tr>
+    <tr>
+        <td>PRICE</td>
+        <td>@Html.DisplayFor(model => model.price)</td>
+    </tr>
+     
+</table>
+

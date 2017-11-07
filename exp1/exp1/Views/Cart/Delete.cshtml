@@ -1,0 +1,41 @@
+﻿@model exp1.Models.Cart
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<table class="table table-striped">
+    <tr>
+        <td>
+         Name
+         </td>
+        <td>
+         @Html.DisplayFor(model => model.product_name)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Image
+        </td>
+        <td>
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <img src="~/Content/Img/@Model.img" height="350" width="800"  />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Price
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.price)
+        </td>
+    </tr>
+    </table>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

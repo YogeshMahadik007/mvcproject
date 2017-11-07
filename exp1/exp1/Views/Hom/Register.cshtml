@@ -1,0 +1,89 @@
+﻿@model exp1.Models.Register
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2 style="text-align:center">Register Yourself</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    
+    <table class="table table-striped">
+        <tr>
+            <td>
+                First Name
+            </td>
+            <td>
+            @Html.EditorFor(model => model.fname)
+            @Html.ValidationMessageFor(model => model.fname)
+            </td>
+            <td rowspan="7">
+                <img src="~/Content/Img/register.jpg" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                 Middle Name
+            </td>
+            <td>
+               @Html.EditorFor(model => model.mname)
+            @Html.ValidationMessageFor(model => model.mname)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Surname
+            </td>
+            <td>
+               @Html.EditorFor(model => model.lname)
+               @Html.ValidationMessageFor(model => model.lname)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email ID
+            </td>
+            <td>
+            @Html.EditorFor(model => model.email_id)
+            @Html.ValidationMessageFor(model => model.email_id)
+            </td>
+        </tr>
+        <tr>
+            <td>
+             Confirm Email ID
+            </td>
+            <td>
+            @Html.EditorFor(model => model.cemail)
+            @Html.ValidationMessageFor(model => model.cemail)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Password
+            </td>
+            <td>
+                 @Html.EditorFor(model => model.pwd)
+            @Html.ValidationMessageFor(model => model.pwd)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Confirm Password
+            </td>
+            <td>
+                   @Html.EditorFor(model => model.cpwd)
+            @Html.ValidationMessageFor(model => model.cpwd)
+            </td>
+        </tr>
+    </table>
+           
+      
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

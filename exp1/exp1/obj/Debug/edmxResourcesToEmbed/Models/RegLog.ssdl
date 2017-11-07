@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="exp1Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="exp1ModelStoreContainer">
+    <EntitySet Name="Logins" EntityType="exp1Model.Store.Logins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Registers" EntityType="exp1Model.Store.Registers" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Logins">
+    <Key>
+      <PropertyRef Name="Email_ID" />
+    </Key>
+    <Property Name="Email_ID" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Registers">
+    <Key>
+      <PropertyRef Name="Email_Id" />
+    </Key>
+    <Property Name="First_Name" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="Middle_Name" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="Last_Name" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="Gender" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Email_Id" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="confirm_Password" Type="varchar" Nullable="false" MaxLength="30" />
+  </EntityType>
+</Schema>
